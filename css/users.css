@@ -208,13 +208,13 @@ body {
 }
 
 .container .profileLayout .profileBadges .profileBadge.dev:hover::before {
-    content: 'Developer';
+    content: 'Разработчик';
 }
 .container .profileLayout .profileBadges .profileBadge.staff:hover::before {
-    content: 'Staff';
+    content: 'Администратор';
 }
 .container .profileLayout .profileBadges .profileBadge.certif:hover::before {
-    content: 'Certified';
+    content: 'Проверенный';
 }
 .container .profileLayout .profileBadges .profileBadge.premium:hover::before {
     content: 'Premium';
