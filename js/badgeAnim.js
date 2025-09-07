@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Determinamos o texto baseado na classe do badge
       let tooltipText = '';
-      if (badge.classList.contains('dev')) tooltipText = 'Developer';
-      else if (badge.classList.contains('staff')) tooltipText = 'Staff';
-      else if (badge.classList.contains('certif')) tooltipText = 'Certified';
+      if (badge.classList.contains('dev')) tooltipText = 'Разработчик';
+      else if (badge.classList.contains('staff')) tooltipText = 'Администратор';
+      else if (badge.classList.contains('certif')) tooltipText = 'Проверенный';
       else if (badge.classList.contains('premium')) tooltipText = 'Premium';
       else if (badge.classList.contains('bughunter')) tooltipText = 'Bug Hunter';
       else if (badge.classList.contains('earlysupporter')) tooltipText = 'Early Supporter';
