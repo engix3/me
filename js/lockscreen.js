@@ -18,7 +18,7 @@ function criarLockscreen() {
   // Texto para clicar com transição suave
   const clickText = document.createElement('div');
   clickText.classList.add('click-text');
-  clickText.innerHTML = '[ click to unlock ]';
+  clickText.innerHTML = '[ Нажми, чтобы открыть ]';
   clickText.style.willChange = 'opacity, transform';
   
   // Adicionar animação de pulso suave ao texto usando CSS
