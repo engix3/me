@@ -207,7 +207,7 @@ body {
     opacity: .8;
 }
 
-.container .profileLayout .profileBadges .profileBadge.dev:hover::before {
+/* .container .profileLayout .profileBadges .profileBadge.dev:hover::before {
     content: 'Разработчик';
 }
 .container .profileLayout .profileBadges .profileBadge.staff:hover::before {
@@ -239,7 +239,7 @@ body {
 }
 .container .profileLayout .profileBadges .profileBadge.patrick:hover::before {
     content: 'St. Patrick';
-}
+} */
 
 .container .profileLayout .profileBio {
     font-weight: 570;
@@ -523,7 +523,7 @@ body {
     transform: scale(1.05);
 } */
 
-.container .linkedAccounts a[data-type="Discord"]:hover svg {
+/* .container .linkedAccounts a[data-type="Discord"]:hover svg {
     transform: scale(1.25);
     filter: drop-shadow(0 0 0.8px #ffffff) !important;
 }
@@ -541,7 +541,7 @@ body {
 .container .linkedAccounts a[data-type="Roblox"]:hover svg {
     transform: scale(1.25);
     filter: drop-shadow(0 0 0.8px #ffffff) !important;
-}
+} */
 
 /* Transição suave para todos os SVGs */
 .container .linkedAccounts a svg {
