@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
       else if (badge.classList.contains('og')) tooltipText = 'OG';
       else if (badge.classList.contains('sweet')) tooltipText = 'Candy';
       else if (badge.classList.contains('patrick')) tooltipText = 'St. Patrick';
+      else if (badge.classList.contains('hacker')) tooltipText = 'Хакер';
       
       tooltip.textContent = tooltipText;
       document.body.appendChild(tooltip);
