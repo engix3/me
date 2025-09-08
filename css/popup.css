@@ -21,7 +21,7 @@
 
 .popup-container {
     backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.815);
+    background-color: rgba(0, 0, 0, 0.815); /* Sem backdrop-filter */
     border-radius: 8px;
     box-shadow: 10px 8px 12px rgba(0, 0, 0, 0.404);
     height: 150px;
@@ -35,13 +35,24 @@
     border: 4px solid rgba(0, 0, 0, 0.151);
 }
 
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    backdrop-filter: blur(1px);
+    opacity: 0.01;
+}
+
 .popup-overlay.active .popup-container {
     transform: scale(1);
     opacity: 1;
 }
 
 .popup-message {
-    margin-top: 5px;
+    margin-top: 5px !important;
     font-size: 15px;
     color: #ffffff;
     margin: 0 0 16px 0;
@@ -61,8 +72,7 @@
     font-weight: 500;
     border: none;
     transition: background-color 0.2s ease;
-    font-family: 'Chillax', sans-serif;
-    cursor: pointer;
+    font-family: 'Chillax', sans-serif !important;
 }
 
 .popup-button-cancel {
@@ -82,5 +92,3 @@
 .popup-button-confirm:hover {
     background-color: #245c13;
 }
-
-/* Удален ненужный псевдоэлемент body::after */
