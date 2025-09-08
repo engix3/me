@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="#2F3136" name="theme-color">
-    <title>engi</title> <!-- Добавлен заголовок -->
+    <title></title>
     <link rel="stylesheet" href="/css/global.css">
     <link rel="stylesheet" href="/css/users.css">
     <link rel="stylesheet" href="/css/popup.css">
@@ -13,7 +13,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" data-font="chillax" href="https://api.fontshare.com/v2/css?f[]=chillax@500&amp;display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee&family=Creepster&family=Gloria+Hallelujah&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee&family=Creepster&family=Gloria+Hallelujah&family=Permanent+Marker&display=swap"
+        rel="stylesheet">
 </head>
 <style>
     body {
@@ -80,8 +82,7 @@ a, button, .linkedAccountsRedirect svg, .popup-button {
 <body profile="" style="font-family: Satoshi, sans-serif; cursor: url('/img/extralsmall.png'), auto; background-color: #222222;">
     <div class="video-container">
         <div class="placeholder" style="background-image: url('/img/placeholder.png');"></div>
-        <!-- Убран атрибут muted, чтобы можно было управлять громкостью -->
-        <video style="filter: contrast(1.2);" class="background" autoplay loop preload="auto" disablePictureInPicture>
+        <video style="filter: contrast(1.2);" class="background" autoplay muted loop preload="auto" disablePictureInPicture>
             <source src="/img/ingame.mp4" type="video/mp4">
             <source src="/img/ingame.webm" type="video/webm">
         </video>
@@ -91,7 +92,7 @@ a, button, .linkedAccountsRedirect svg, .popup-button {
         <svg class="volume-icon" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" style="opacity: 0.7;">
             <path fill="currentColor" d="M3 9v6h4l5 5V4L7 9zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77"></path>
         </svg>
-        <input style="cursor: url('/img/Precision Select.cur') !important;" type="range" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
+        <input style="cursor: url('/img/Precision Select.cur') !important;" type="range" class="volume-slider" min="0" max="1" step="0.1" value="1">
     </div>
     
     <div class="content" style="position: fixed; width: 100%; align-items: center; max-width: var(--containerWidth); display: flex; justify-content: center; flex-direction: column; gap: 15px; will-change: transform; transition: 700ms cubic-bezier(0.03, 0.98, 0.52, 0.99); transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
@@ -170,7 +171,7 @@ a, button, .linkedAccountsRedirect svg, .popup-button {
                         style="fill: #ffffff; filter: drop-shadow(0 0 1.5px #ffffff) !important;" width="1em"
                         height="1em" viewBox="1 1.5 22 21">
                         <path
-                        d="M475.3571,413.24a69.9,69.9,0,0,0-39.8845-57.4407l-39.9287-18.7987,21.5791-44.5621a89.4527,89.4527,0,0,0,.0025-77.9684L359.7988,96.0682C317.7933,9.3105,194.2088,9.31,152.2019,96.0666L94.87,214.4745a89.445,89.445,0 0,0,.0049,77.9692l21.581,44.5569L76.5256,355.8a69.898,69.898,0,0,0-39.8831,57.439l-3.612,43.3773a22.5157,22.5157,0,0,0,22.4381,24.3842H456.5337A22.5134,22.5134,0,0,0,478.97,456.6187ZM364,260.1205a107.9746,107.9746,0,0,1-98.1035,107.5V341.1249a9.8965,9.8965,0,0,0-19.793,0v26.4957A107.9746,107.9746,0,0,1,148,260.1205V203.44a28.8192,28.8192,0,0,1,28.8193-28.8193H335.1806A28.8193,28.8193,0,0,1,364,203.44Z">
+                        d="M475.3571,413.24a69.9,69.9,0,0,0-39.8845-57.4407l-39.9287-18.7987,21.5791-44.5621a89.4527,89.4527,0,0,0,.0025-77.9684L359.7988,96.0682C317.7933,9.3105,194.2088,9.31,152.2019,96.0666L94.87,214.4745a89.445,89.445,0,0,0,.0049,77.9692l21.581,44.5569L76.5256,355.8a69.898,69.898,0,0,0-39.8831,57.439l-3.612,43.3773a22.5157,22.5157,0,0,0,22.4381,24.3842H456.5337A22.5134,22.5134,0,0,0,478.97,456.6187ZM364,260.1205a107.9746,107.9746,0,0,1-98.1035,107.5V341.1249a9.8965,9.8965,0,0,0-19.793,0v26.4957A107.9746,107.9746,0,0,1,148,260.1205V203.44a28.8192,28.8192,0,0,1,28.8193-28.8193H335.1806A28.8193,28.8193,0,0,1,364,203.44Z">
                         </path>
                     </svg>
                 </div>-->
@@ -434,7 +435,7 @@ container.addEventListener('mouseenter', (e) => {
       fetch('/status')
         .then(response => response.json())
         .then(data => {
-          // document.getElementById('currentStatus').innerText = data.status; // Закомментировано, так как элемент не найден
+          document.getElementById('currentStatus').innerText = data.status;
         });
     }, 10000);
   </script>
@@ -481,146 +482,6 @@ document.addEventListener('DOMContentLoaded', function() {
     tryPlayRainAudio();
     // Резерв: повторная попытка через 1 секунду
     setTimeout(tryPlayRainAudio, 1000);
-});
-  </script>
-  
-  <!-- ИСПРАВЛЕННЫЙ СКРИПТ УПРАВЛЕНИЯ ГРОМКОСТЬЮ ДЛЯ ВИДЕО -->
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM загружен, инициализация управления громкостью видео...");
-
-    // 1. Найти все необходимые элементы
-    // Ищем видео
-    const videoPlayer = document.querySelector('video'); 
-    const volumeSlider = document.querySelector('.volume-slider');
-    const volumeIcon = document.querySelector('.volume-icon');
-
-    // 2. Проверить, существуют ли элементы
-    if (!videoPlayer) {
-        console.error('❌ Элемент видео (video) не найден в DOM');
-        return; // Останавливаем выполнение, если видео нет
-    }
-    if (!volumeSlider) {
-        console.error('❌ Ползунок громкости (.volume-slider) не найден в DOM');
-        return; // Останавливаем выполнение, если ползунка нет
-    }
-    if (!volumeIcon) {
-        console.log('ℹ️ Иконка громкости (.volume-icon) не найдена, будет использована стандартная иконка');
-        // Не останавливаем выполнение, так как иконка не критична
-    }
-
-    console.log("✅ Все необходимые элементы найдены");
-
-    // 3. Установить начальные значения
-    // У видео по умолчанию volume = 1.0 (100%)
-    const initialVolume = 0.5; // 50% громкости по умолчанию
-    // Не устанавливаем videoPlayer.volume здесь напрямую, так как видео уже может быть загружено
-    volumeSlider.value = initialVolume;
-    let lastVolume = initialVolume;
-
-    console.log(`🎚️ Начальное значение ползунка: ${initialVolume}`);
-
-    // 4. Функция для обновления иконки громкости
-    function updateVolumeIcon(volume) {
-        if (!volumeIcon) return; // Если иконки нет, ничего не делаем
-
-        try {
-            if (volume == 0) {
-                // Иконка выключенного звука (muted)
-                volumeIcon.innerHTML = `<path fill="currentColor" d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63m2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71M4.27 3L3 4.27L7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21L21 19.73l-9-9zM12 4L9.91 6.09L12 8.18z"></path>`;
-            } else if (volume < 0.3) {
-                // Иконка низкой громкости
-                volumeIcon.innerHTML = `<path fill="currentColor" d="M7 9v6h4l5 5V4l-5 5z"></path>`;
-            } else {
-                // Иконка средней/высокой громкости
-                volumeIcon.innerHTML = `<path fill="currentColor" d="M3 9v6h4l5 5V4L7 9zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77"></path>`;
-            }
-            console.log(`🔊 Иконка обновлена для громкости: ${volume}`);
-        } catch (error) {
-            console.error('⚠️ Ошибка при обновлении иконки громкости:', error);
-        }
-    }
-
-    // Установить начальную иконку
-    updateVolumeIcon(initialVolume);
-
-    // 5. Функция для безопасной установки громкости видео
-    function setVideoVolume(volume) {
-        try {
-            // Убираем атрибут muted с видео, если он есть и громкость > 0
-            // Это необходимо, потому что атрибут muted блокирует изменение свойства volume
-            if (volume > 0 && videoPlayer.hasAttribute('muted')) {
-                videoPlayer.removeAttribute('muted');
-                 console.log("🔇 Атрибут muted удален с видео");
-            }
-            // Устанавливаем громкость
-            videoPlayer.volume = volume;
-            console.log(`🎥 Громкость видео установлена: ${volume}`);
-        } catch (error) {
-            console.error('⚠️ Ошибка при установке громкости видео:', error);
-            // В Chrome может возникнуть ошибка, если пытаемся изменить громкость до взаимодействия с пользователем
-            console.log("ℹ️ Попробуйте взаимодействовать со страницей (например, кликнуть), чтобы разблокировать управление громкостью видео.");
-        }
-    }
-
-    // 6. Добавить обработчик события на ползунок
-    volumeSlider.addEventListener('input', function() {
-        console.log(`🎚️ Ползунок изменен: ${this.value}`);
-        try {
-            const newVolume = parseFloat(this.value);
-            if (!isNaN(newVolume)) {
-                // Сохраняем значение для mute/unmute
-                lastVolume = newVolume;
-                // Пытаемся установить громкость видео
-                setVideoVolume(newVolume);
-                // Обновляем иконку
-                updateVolumeIcon(newVolume);
-            } else {
-                console.error('⚠️ Некорректное значение громкости:', this.value);
-            }
-        } catch (error) {
-            console.error('⚠️ Ошибка в обработчике ползунка:', error);
-        }
-    });
-
-    // 7. Добавить обработчик клика по иконке для mute/unmute
-    if (volumeIcon) {
-        volumeIcon.addEventListener('click', function() {
-            console.log("🔇 Иконка громкости нажата");
-            try {
-                if (videoPlayer.volume > 0) {
-                    // Выключить звук
-                    lastVolume = videoPlayer.volume;
-                    setVideoVolume(0);
-                    volumeSlider.value = 0;
-                    updateVolumeIcon(0);
-                    console.log("🔇 Звук видео выключен");
-                } else {
-                    // Включить звук
-                    const restoreVolume = lastVolume > 0 ? lastVolume : 0.5;
-                    setVideoVolume(restoreVolume);
-                    volumeSlider.value = restoreVolume;
-                    updateVolumeIcon(restoreVolume);
-                    console.log(`🔊 Звук видео включен на уровне: ${restoreVolume}`);
-                }
-            } catch (error) {
-                console.error('⚠️ Ошибка при переключении mute/unmute видео:', error);
-            }
-        });
-    }
-
-    // 8. Синхронизировать ползунок с реальной громкостью видео, если она изменится извне
-    videoPlayer.addEventListener('volumechange', function() {
-        // Обновляем ползунок только если изменение не от нашего скрипта
-        // Это помогает, если громкость изменится, например, системными клавишами
-        if (Math.abs(volumeSlider.value - this.volume) > 0.01) {
-             volumeSlider.value = this.volume;
-             updateVolumeIcon(this.volume);
-             console.log(`🔄 Громкость видео изменилась вне скрипта. Ползунок обновлен: ${this.volume}`);
-        }
-    });
-
-    console.log("✅ Скрипт управления громкостью видео инициализирован");
 });
   </script>
 </body>
