@@ -20,24 +20,25 @@ document.addEventListener('DOMContentLoaded', () => {
     let firstClickHappened = false;
 
     // Função para reprodução automática com delay
-    function autoPlayWithDelay() {
-        if (!firstClickHappened) return;
-        
-        // Delay de 2 segundos após o primeiro clique
-        setTimeout(() => {
-            audio.play();
-            playIcon.style.display = 'none';
-            pauseIcon.style.display = 'block';
-        }, 2000);
-    }
+/*
+function autoPlayWithDelay() {
+    if (!firstClickHappened) return;
+    
+    // Delay de 2 segundos após o primeiro clique
+    setTimeout(() => {
+        audio.play(); // <-- УДАЛИТЬ
+        playIcon.style.display = 'none'; // <-- УДАЛИТЬ
+        pauseIcon.style.display = 'block'; // <-- УДАЛИТЬ
+    }, 2000);
+}
 
-    // Adiciona evento de clique no site para habilitar o autoplay
-    document.addEventListener('click', () => {
-        if (!firstClickHappened) {
-            firstClickHappened = true;
-            autoPlayWithDelay();
-        }
-    });
+document.addEventListener('click', () => {
+    if (!firstClickHappened) {
+        firstClickHappened = true;
+        autoPlayWithDelay(); // <-- УДАЛИТЬ
+    }
+});
+*/
 
     // Função para pular para frente ou para trás
     function skipTime(direction) {
