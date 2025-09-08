@@ -1041,6 +1041,19 @@ body {
     border-radius: 50%;
 }
 
+.link {
+    color: white !important;
+    text-decoration: none;
+}
+  
+.link:visited {
+    color: white !important;
+}
+  
+.link:hover {
+    text-decoration: underline;
+}
+
 @media (max-width: 480px) {
     .volume-control {
         display: none;
