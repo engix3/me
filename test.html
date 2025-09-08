@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="#2F3136" name="theme-color">
+    <title></title>
+    
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/users.css">
+    <link rel="stylesheet" href="/css/popup.css">
+    
+    <!-- Шрифты -->
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@1&amp;f[]=array@400&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" data-font="chillax" href="https://api.fontshare.com/v2/css?f[]=chillax@500&amp;display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee&family=Creepster&family=Gloria+Hallelujah&family=Permanent+Marker&display=swap" rel="stylesheet">
+    
+    <!-- Иконки -->
+    <link rel="icon" href="/img/heart.png" type="image/x-icon">
+    
+    <style>
+        body {
+            cursor: url('/img/extralsmall.png'), auto;
+        }
+
+        /* Анимации */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            opacity: 0;
+        }
+        
+        /* Классы задержки */
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        .delay-6 { animation-delay: 0.6s; }
+        .delay-7 { animation-delay: 0.7s; }
+        .delay-8 { animation-delay: 0.8s; }
+        .delay-9 { animation-delay: 0.9s; }
+        .delay-10 { animation-delay: 1s; }
+        .delay-15 { animation-delay: 1.5s; }
+        .delay-20 { animation-delay: 2s; }
+        .delay-25 { animation-delay: 2.5s; }
+        .delay-30 { animation-delay: 3s; }
+
+        /* Курсоры */
+        * {
+            cursor: url('/Aero.cur'), auto !important;
+        }
+
+        a, button, .linkedAccountsRedirect svg, .popup-button {
+            cursor: url('/Aero.cur'), pointer !important;
+        }
+
+        /* Адаптивность */
+        @media screen and (max-width: 768px) {
+            * {
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+        }
+    </style>
+</head>
+
+<body profile="" style="font-family: Satoshi, sans-serif; background-color: #222222;">
+    <!-- Popup для редиректа -->
+    <div class="popup-overlay" id="redirect-popup">
+        <div class="popup-container">
+            <p class="popup-message" id="popup-message">
+                Вы будете перенаправлены на Discord. Хотите продолжить?
+            </p>
+            <div class="popup-buttons">
+                <button class="popup-button popup-button-confirm" id="popup-confirm">Продолжить</button>
+                <button class="popup-button popup-button-cancel" id="popup-cancel">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Видео фон -->
+    <div class="video-container">
+        <div class="placeholder" style="background-image: url('/img/placeholder.png');"></div>
+        <video style="filter: contrast(1.2);" class="background" autoplay muted loop preload="auto" disablePictureInPicture>
+            <source src="/img/ingame.mp4" type="video/mp4">
+            <source src="/img/ingame.webm" type="video/webm">
+        </video>
+    </div>
+    
+    <!-- Контроль громкости -->
+    <div class="volume-control">
+        <svg class="volume-icon" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" style="opacity: 0.7;">
+            <path fill="currentColor" d="M3 9v6h4l5 5V4L7 9zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77"/>
+        </svg>
+        <input style="cursor: url('/img/Precision Select.cur') !important;" type="range" class="volume-slider" min="0" max="1" step="0.1" value="1">
+    </div>
+
+    <!-- Основной контент -->
+    <div class="content" style="position: fixed; width: 100%; align-items: center; max-width: var(--containerWidth); display: flex; justify-content: center; flex-direction: column; gap: 15px; will-change: transform; transition: 700ms cubic-bezier(0.03, 0.98, 0.52, 0.99); transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
+        
+        <!-- Контейнер профиля -->
+        <div class="container" style="will-change: transform; transition: 0ms cubic-bezier(0.03, 0.98, 0.52, 0.99); transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
+            
+            <!-- Аватар -->
+            <div class="elemento-para-animar delay-7">
+                <img style="opacity: 1;" class="avatar" src="/img/vaatartatar.png" alt="Аватар">
+            </div>
+
+            <!-- Информация профиля -->
+            <div class="profileLayout">
+                <!-- Имя пользователя -->
+                <div class="elemento-para-animar delay-10">
+                    <h1 class="profileUsername" style="color: #ffffff; text-shadow: 0 0 20px #ffffff;"><span>engi</span></h1>
+                </div>
+                
+                <!-- Бейджи -->
+                <div class="elemento-para-animar delay-15">
+                    <div class="profileBadges">
+                        <div style="display: flex;" class="profileBadge dev">
+                            <svg class="profileBadge" xmlns="http://www.w3.org/2000/svg" height="1.3em" viewBox="0 0 24 24" width="1.3em">
+                                <path d="m21.58 11.4-4.28-7.39-.35-.6h-9.91l-.35.6-4.27 7.39-.35.6.35.6 4.27 7.39.35.6h9.92l.35-.6 4.28-7.39.35-.6zm-13.07-1.03-1.63 1.63 1.63 1.63v2.73l-4.36-4.36 4.37-4.37v2.74zm3.12 6.93-2.04-.63 3.1-9.98 2.04.64zm3.86-.93v-2.73l1.63-1.64-1.63-1.63v-2.74l4.36 4.37z" style="filter: drop-shadow(0 0 1.5px #ffffff) !important;" fill="#ffffff"/>
+                            </svg>
+                        </div>
+
+                        <div class="profileBadge certif">
+                            <svg class="profileBadge" xmlns="http://www.w3.org/2000/svg" style="fill: #ffffff; filter: drop-shadow(0 0 1.5px #ffffff) !important;" width="1em" height="1em" viewBox="1 1.5 22 21">
+                                <path d="m8.6 22.5l-1.9-3.2l-3.6-.8l.35-3.7L1 12l2.45-2.8l-.35-3.7l3.6-.8l1.9-3.2L12 2.95l3.4-1.45l1.9 3.2l3.6.8l-.35 3.7L23 12l-2.45 2.8l.35 3.7l-3.6.8l-1.9 3.2l-3.4-1.45l-3.4 1.45Zm2.35-6.95L16.6 9.9l-1.4-1.45l-4.25 4.25l-2.15-2.1L7.4 12l3.55 3.55Z"/>
+                            </svg>
+                        </div>
+
+                        <div class="profileBadge staff">
+                            <svg class="profileBadge" xmlns="http://www.w3.org/2000/svg" style="fill: #ffffff; filter: drop-shadow(0 0 1.5px #ffffff) !important;" width="1em" height="1em" viewBox="1 1.5 22 21">
+                                <path d="m16.06 13.09l5.63 5.59l-3.32 3.28l-5.59-5.59v-.92l2.36-2.36h.92m.91-2.53L16 9.6l-4.79 4.8v1.97L5.58 22L2.3 18.68l5.59-5.59h1.97l.78-.78L6.8 8.46H5.5L2.69 5.62L5.31 3l2.8 2.8v1.31L12 10.95l2.66-2.66l-.96-1.01L15 5.97h-2.66l-.65-.65L15 2l.66.66v2.66L16.97 4l3.28 3.28c1.09 1.1 1.09 2.89 0 3.98l-1.97-2.01l-1.31 1.31Z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Биография с печатной машинкой -->
+                <div class="elemento-para-animar delay-16">
+                    <h3 id="typingText" style="color: #ffffff;" class="profileBio"></h3>
+                    <i><div id="typingTexts" style="display: none;">To heal and protect. &lt;&gt; Soon, all will wane. &lt;&gt; Hear the elegy of the lost. &lt;&gt; :wave:👋</div></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Discord информация -->
+        <div class="elemento-para-animar delay-17">
+            <div class="presenceWrapper">
+                <div class="presenceContainer">
+                    <div class="discordInfos">
+                        <div class="discordAvatar">
+                            <img class="avatarImage" src="/img/vaatartatar.png" alt="Discord Avatar">
+                        </div>
+                        <div class="discordActivity">
+                            <div class="discordUser">
+                                <div class="discordUserDiv">
+                                    <span>engi</span>
+                                    <div class="discordUserBadges">
+                                        <div class="discordUserBadge" data-tooltip="HypeSquad Bravery">
+                                            <img src="/img/Hypesquad.png" alt="Discord Badge">
+                                        </div>
+                                        <div class="discordUserBadge" data-tooltip="Задание выполнено">
+                                            <img src="/img/mission.png" alt="Discord Badge">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="discord-text">
+                                    <p class="left">Прежде чем мне писать, пожалуйста,</p>
+                                    <p class="left">прочитайте — 
+                                        <a href="https://neprivet.com" target="_blank" rel="noopener noreferrer" class="white-link">
+                                            neprivet.com
+                                        </a>.
+                                    </p>
+                                    <p class="center">(づ ᴗ _ᴗ)づ♡</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Социальные сети -->
+        <div class="elemento-para-animar delay-18">
+            <div class="linkedAccounts">
+                <a data-type="Discord" class="linkedAccountsRedirect" id="trigger-popup" target="_blank" href="https://discord.com/users/1257675618175422576">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.8em" height="1.8em" viewBox="1.96 4.26 20.03 15.53">
+                        <path fill="currentColor" d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1a14.66 14.66 0 0 0-4.58 0a10.14 10.14 0 0 0-.53-1.1a16 16 0 0 0-4.13 1.3a17.33 17.33 0 0 0-3 11.59a16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83a3.39 3.39 0 0 0 .42-.33a11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84a12.41 12.41 0 0 0 1.08 1.78a16.44 16.44 0 0 0 5.06-2.59a17.22 17.22 0 0 0-3-11.59a16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2a1.93 1.93 0 0 1 1.8-2a1.93 1.93 0 0 1 1.8 2a1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2a1.93 1.93 0 0 1 1.8-2a1.92 1.92 0 0 1 1.8 2a1.92 1.92 0 0 1-1.8 2z"/>
+                    </svg>
+                </a>
+
+                <a data-type="Telegram" class="linkedAccountsRedirect" id="trigger-popup" target="_blank" href="https://t.me/Engih1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.8em" height="1.8em" viewBox="2.02 2.02 19.98 19.98">
+                        <path fill="currentColor" d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/>
+                    </svg>
+                </a>
+                
+                <a data-type="VK" class="linkedAccountsRedirect" id="trigger-popup" target="_blank" href="https://vk.com/engiyt">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.8em" height="1.8em" viewBox="2.02 2.02 19.98 19.98">
+                        <path fill="currentColor" d="M21.579 6.855c.14-.465 0-.806-.662-.806h-2.193c-.558 0-.813.295-.953.619 0 0-1.115 2.719-2.695 4.482-.51.513-.743.675-1.021.675-.139 0-.341-.162-.341-.627V6.855c0-.558-.161-.806-.626-.806H9.642c-.348 0-.558.258-.558.504 0 .528.79.65.871 2.138v3.228c0 .707-.127.836-.407.836-.743 0-2.551-2.729-3.624-5.853-.209-.607-.42-.852-.98-.852H2.752c-.627 0-.752.295-.752.619 0 .582.743 3.462 3.461 7.271 1.812 2.601 4.363 4.011 6.687 4.011 1.393 0 1.565-.313 1.565-.853v-1.966c0-.626.133-.752.574-.752.324 0 .882.164 2.183 1.417 1.486 1.486 1.732 2.153 2.567 2.153h2.192c.626 0 .939-.313.759-.931-.197-.615-.907-1.51-1.849-2.569-.512-.604-1.277-1.254-1.51-1.579-.325-.419-.231-.604 0-.976.001.001 2.672-3.761 2.95-5.04z"/>
+                    </svg>
+                </a>
+
+                <a data-type="Steam" class="linkedAccountsRedirect" id="trigger-popup" target="_blank" href="https://steamcommunity.com/id/engioff/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.8em" height="1.8em" viewBox="0.02 0.02 25.98 25.98">
+                        <path fill="currentColor" d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/>
+                    </svg>
+                </a>
+
+                <a data-type="Roblox" class="linkedAccountsRedirect" id="trigger-popup" target="_blank" href="https://www.roblox.com/users/540243341/profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.8em" height="1.8em" viewBox="2 12 50 30">
+                        <path fill="currentColor" d="M 12.125 1.9980469 A 1.0001 1.0001 0 0 0 11.199219 2.7441406 L 2.0332031 37.576172 A 1.0001 1.0001 0 0 0 2.7460938 38.798828 L 37.580078 47.966797 A 1.0001 1.0001 0 0 0 38.802734 47.253906 L 47.96875 12.419922 A 1.0001 1.0001 0 0 0 47.255859 11.197266 L 12.421875 2.03125 A 1.0001 1.0001 0 0 0 12.125 1.9980469 z M 21.5 19 L 31 21.5 L 28.5 31 L 19 28.5 L 21.5 19 z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Статистика профиля -->
+        <div class="elemento-para-animar delay-20">
+            <div class="profileStats">
+                <div class="profileLocation" data-type="Местоположение">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2C7.58172 2 4 5.58172 4 10C4 11.8919 4.40209 13.1304 5.5 14.5L12 22L18.5 14.5C19.5979 13.1304 20 11.8919 20 10C20 5.58172 16.4183 2 12 2Z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    <span style="font-weight:550;font-size:17px">Самара</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Музыкальный плеер -->
+    <div class="elemento-para-animar delay-5">
+        <div style="margin-top: -40px; will-change: transform; transition: 0ms cubic-bezier(0.03, 0.98, 0.52, 0.99); transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);" class="music-container">
+            <div class="music-player">
+                <div class="player-timeline">
+                    <span class="current-time" style="margin-right: 5px; opacity: 0.9">0:00</span>
+                    <div class="timeline">
+                        <div class="timeline-progress"></div>
+                    </div>
+                    <span class="total-time" style="margin-left: 5px; opacity: 0.9">3:39</span>
+                </div>
+                <div class="player-controls">
+                    <svg style="opacity: 0.4;" class="prev" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M7 6c.55 0 1 .45 1 1v10c0 .55-.45 1-1 1s-1-.45-1-1V7c0-.55.45-1 1-1m3.66 6.82l5.77 4.07c.66.47 1.58-.01 1.58-.82V7.93c0-.81-.91-1.28-1.58-.82l-5.77 4.07a1 1 0 0 0 0 1.64"/>
+                    </svg>
+                    
+                    <!-- Иконка паузы -->
+                    <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" style="cursor: pointer; pointer-events: auto;">
+                        <path fill="currentColor" d="M8 19c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2s-2 .9-2 2v10c0 1.1.9 2 2 2m6-12v10c0 1.1.9 2 2 2s2-.9 2-2V7c0-1.1-.9-2-2-2s-2 .9-2 2"/>
+                    </svg>
+                    
+                    <!-- Иконка воспроизведения -->
+                    <svg class="play-pause" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" style="cursor: pointer; display: none; pointer-events: auto;">
+                        <path fill="currentColor" d="M8 17.175V6.825q0-.425.3-.713t.7-.287q.125 0 .263.037t.262.113l8.15 5.175q.225.15.338.375t.112.475t-.112.475t-.338.375l-8.15 5.175q-.125.075-.262.113T9 18.175q-.4 0-.7-.288t-.3-.712"/>
+                    </svg>
+
+                    <svg style="opacity: 0.4;" class="next" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="m7.58 16.89l5.77-4.07c.56-.4.56-1.24 0-1.63L7.58 7.11C6.91 6.65 6 7.12 6 7.93v8.14c0 .81.91 1.28 1.58.82M16 7v10c0 .55.45 1 1 1s1-.45 1-1V7c0-.55-.45-1-1-1s-1 .45-1 1"/>
+                    </svg>
+                </div>
+            </div>
+            <audio class="audioPlayer" src="/img/lixomusica.m4a"></audio>
+        </div>
+    </div>
+
+    <!-- Скрипты -->
+    <script src="/js/typing.js"></script>
+    <script src="/js/badgeAnim.js"></script>
+    <script src="/js/title.js"></script>
+    <script src="/js/row.js"></script>
+    <script src="/js/player.js"></script>
+    <script src="/js/container1-music1anim.js"></script>
+    <script src="/js/e1ditQ6vEJSZZqx57987sFCx3bRf.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/js/lockscreen.js"></script>
+    <script src="/js/cur-snow.js"></script>
+
+    <script>
+        // Инициализация 3D эффекта для контейнера
+        const container = document.querySelector('.container');
+        container.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+        container.style.zIndex = '1';
+        container.style.position = 'relative';
+        container.style.willChange = 'transform';
+        container.style.backfaceVisibility = 'hidden';
+        container.style.transformStyle = 'preserve-3d';
+
+        let currentX = 0;
+        let currentY = 0;
+        let targetX = 0;
+        let targetY = 0;
+        let rafId = null;
+
+        function animateTransform() {
+            currentX += (targetX - currentX) * 0.1;
+            currentY += (targetY - currentY) * 0.1;
+            
+            container.style.transform = `
+                perspective(1000px)
+                rotateX(${currentY}deg)
+                rotateY(${currentX}deg)
+            `;
+            
+            if (Math.abs(targetX - currentX) > 0.01 || Math.abs(targetY - currentY) > 0.01) {
+                rafId = requestAnimationFrame(animateTransform);
+            } else {
+                rafId = null;
+            }
+        }
+
+        container.addEventListener('mousemove', (e) => {
+            const rect = container.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const offsetX = (x - centerX) / centerX;
+            const offsetY = (y - centerY) / centerY;
+            const intensity = 15;
+            
+            targetX = offsetX * intensity;
+            targetY = offsetY * intensity;
+            
+            if (!rafId) {
+                rafId = requestAnimationFrame(animateTransform);
+            }
+            
+            e.stopPropagation();
+        });
+
+        container.addEventListener('mouseleave', () => {
+            targetX = 0;
+            targetY = 0;
+            
+            if (!rafId) {
+                rafId = requestAnimationFrame(animateTransform);
+            }
+        });
+
+        container.addEventListener('mouseenter', (e) => {
+            e.stopPropagation();
+        });
+
+        // Попап для редиректа
+        document.addEventListener('DOMContentLoaded', function() {
+            const popup = document.getElementById('redirect-popup');
+            const popupCancel = document.getElementById('popup-cancel');
+            const popupConfirm = document.getElementById('popup-confirm');
+            const popupMessage = document.getElementById('popup-message');
+            
+            let currentLink = '';
+            let currentPlatform = '';
+            
+            document.querySelectorAll('a#trigger-popup').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    currentLink = this.getAttribute('href');
+                    currentPlatform = this.getAttribute('data-type');
+                    
+                    popupMessage.textContent = `Вы будете перенаправлены на ${currentPlatform}. Хотите продолжить?`;
+                    popup.classList.add('active');
+                });
+            });
+            
+            popupCancel.addEventListener('click', function() {
+                popup.classList.remove('active');
+            });
+            
+            popupConfirm.addEventListener('click', function() {
+                window.open(currentLink, '_blank');
+                popup.classList.remove('active');
+            });
+            
+            popup.addEventListener('click', function(e) {
+                if (e.target === popup) {
+                    popup.classList.remove('active');
+                }
+            });
+        });
+
+        // Обновление статуса
+        setInterval(() => {
+            fetch('/status')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('currentStatus').innerText = data.status;
+                });
+        }, 10000);
+
+        // Фоновый аудио
+        document.addEventListener('DOMContentLoaded', function() {
+            const rainAudio = document.querySelector('audio[src="/img/praiafake.mp3"]');
+            
+            if (!rainAudio) return;
+            
+            rainAudio.loop = true;
+            rainAudio.volume = 0.05;
+            
+            let audioStartAttempted = false;
+            
+            function tryPlayRainAudio() {
+                if (audioStartAttempted) return;
+                audioStartAttempted = true;
+                
+                const playPromise = rainAudio.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        const startRainAudio = function() {
+                            rainAudio.play().catch(err => {});
+                            
+                            document.removeEventListener('click', startRainAudio);
+                            document.removeEventListener('touchstart', startRainAudio);
+                            document.removeEventListener('keydown', startRainAudio);
+                        };
+                        
+                        document.addEventListener('click', startRainAudio, { once
