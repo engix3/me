@@ -1067,7 +1067,7 @@ body {
     .presenceWrapper {
         width: 95%; /* Ширина блока */
         margin: 10px auto; /* Центрирование и отступы */
-        padding: 8px; /* Внутренние отступы */
+        padding: 0px; /* Внутренние отступы */
         box-sizing: border-box; /* Учет padding в ширине */
     }
 }
