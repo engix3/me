@@ -1081,29 +1081,16 @@ body {
 
   /* Ваши существующие правила для мобильных */
 
-  /* Отмена анимации поднятия для .container */
 @media (max-width: 480px) {
-  .container {
-    transform: none !important; /* Отменяет любые transform, включая translateY */
-    margin-top: 0 !important;   /* Сбрасывает margin-top, если он используется для поднятия */
-  }
-}
-  /* Если анимация применяется к другому элементу, например, .content */
-@media (max-width: 480px) {
-  .content {
+    .music-container {
     transform: none !important;
     margin-top: 0 !important;
-  }
 }
-  /* Отключаем переходы и анимации на мобильных для плавности */
+
 @media (max-width: 480px) {
-  .container,
-  .content,
-  .music-container,
-  .presenceWrapper {
-    transition: none !important;
-    animation: none !important;
-  }
+    .container {
+    transform: none !important;
+    margin-top: 0 !important;
 }
 
 @media (max-width: 480px) {
