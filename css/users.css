@@ -1055,11 +1055,62 @@ body {
 }
 
 /* Медиазапрос для мобильных устройств */
-@media screen and (max-width: 768px) { /* Вы можете изменить 768px на нужный вам порог */
-  /* Скрытие аватара Discord (если это еще не сделано) */
-  .discordAvatar { /* Используйте правильный класс/селектор для аватара */
-    display: none;
+@media screen and (max-width: 768px) {
+  /* Адаптация контейнера Discord информации */
+  .presenceWrapper {
+    width: 95%; /* Ширина блока */
+    margin: 10px auto; /* Центрирование и отступы */
+    padding: 8px; /* Внутренние отступы */
+    box-sizing: border-box; /* Учет padding в ширине */
   }
+
+  .discordInfos {
+    flex-direction: column; /* Расположение элементов друг под другом */
+    align-items: center; /* Центрирование элементов по горизонтали */
+    gap: 10px; /* Расстояние между элементами */
+  }
+
+  /* Адаптация информации о пользователе */
+  .discordUser {
+    text-align: center; /* Центрирование текста */
+    width: 100%; /* Ширина 100% */
+  }
+
+  .discordUserDiv {
+    justify-content: center; /* Центрирование содержимого */
+    margin-bottom: 8px; /* Отступ снизу */
+  }
+
+  /* Уменьшение размера бейджей */
+  .discordUserBadges {
+    display: flex;
+    gap: 5px; /* Расстояние между бейджами */
+  }
+
+  .discordUserBadge img {
+    width: 20px; /* Ширина бейджа */
+    height: 20px; /* Высота бейджа */
+  }
+
+  /* Адаптация текста и ссылок */
+  .discordUser h3 {
+    font-size: 0.9em; /* Уменьшение шрифта */
+    margin: 3px 0; /* Отступы сверху и снизу */
+    line-height: 1.3; /* Высота строки */
+  }
+
+  .discordUser a {
+    font-size: 0.9em; /* Размер шрифта ссылки */
+  }
+
+  /* Скрытие или адаптация изображения активности, если оно используется */
+  .discordActivityImage {
+    /* display: none; */ /* Раскомментируйте, если хотите скрыть */
+    width: 60px; /* Или уменьшите размер */
+    height: 60px;
+    margin-top: 5px;
+  }
+}
 
   /* Стили для плеера на мобильных устройствах */
   .music-container {
