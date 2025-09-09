@@ -318,6 +318,24 @@ body {
     width: 70px;
 }
 
+.container .presenceWrapper .discordInfos .discordAvatar .discordStatus {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translate(25%, 25%); /* чтобы иконка сидела в углу аватарки */
+}
+
+.status-online { background-image: url('/img/online.png'); }
+.status-idle { background-image: url('/img/idle.png'); }
+.status-dnd { background-image: url('/img/dnd.png'); }
+.status-offline { background-image: url('/img/offline.png'); }
+}
+
 .container .presenceWrapper .discordInfos .discordActivity {
     /* overflow: hidden; */
     text-overflow: ellipsis;
