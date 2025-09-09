@@ -1070,26 +1070,6 @@ body {
         padding: 8px; /* Внутренние отступы */
         box-sizing: border-box; /* Учет padding в ширине */
     }
-
-    .discordAvatar {
-        width: 60px;
-        height: 60px;
-    }
-
-    .discordStatus {
-        width: 12px;
-        height: 12px;
-        transform: translate(15%, 15%);
-    }
-
-    .discordUserDiv span {
-        font-size: 16px;
-    }
-
-    .discordUserBadges img {
-        width: 18px;
-        height: 18px;
-    }
 }
 
   /* Стили для плеера на мобильных устройствах */
@@ -1124,5 +1104,62 @@ body {
 @media (max-width: 480px) {
     .volume-control {
         display: none;
+    }
+}
+
+@media (max-width: 480px) {
+
+/* 1. Скрываем аватарку Discord */
+    .discordAvatar {
+        display: none !important;
+    }
+
+    /* 2. Стили для индикатора статуса слева от имени */
+    .discordStatus {
+        position: relative;
+        transform: none; /* Сбрасываем старый translate */
+        margin-right: 8px; /* Отступ справа от иконки */
+        display: inline-block;
+        vertical-align: middle;
+        width: 14px;
+        height: 14px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+    }
+
+    /* 3. Выравниваем контейнер с именем и статусом по центру */
+    .discordUserDiv {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px; /* Расстояние между иконкой, именем и бейджами */
+    }
+
+    /* 4. Опционально: чуть уменьшаем шрифт имени */
+    .discordUserDiv span {
+        font-size: 18px;
+    }
+
+    /* 5. Дополнительно: центрируем весь блок .discordUser */
+    .discordUser {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* 6. Уменьшаем отступы для компактности */
+    .presenceContainer {
+        padding: 12px !important;
+    }
+
+    .discordUser h3 {
+        font-size: 12px;
+        margin: 4px 0;
     }
 }
