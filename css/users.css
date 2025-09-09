@@ -1064,12 +1064,32 @@ body {
 
   /* Адаптация контейнера Discord информации */
 @media (max-width: 480px) {
-  .presenceWrapper {
-    width: 95%; /* Ширина блока */
-    margin: 10px auto; /* Центрирование и отступы */
-    padding: 8px; /* Внутренние отступы */
-    box-sizing: border-box; /* Учет padding в ширине */
-  }
+    .presenceWrapper {
+        width: 95%; /* Ширина блока */
+        margin: 10px auto; /* Центрирование и отступы */
+        padding: 8px; /* Внутренние отступы */
+        box-sizing: border-box; /* Учет padding в ширине */
+    }
+
+    .discordAvatar {
+        width: 60px;
+        height: 60px;
+    }
+
+    .discordStatus {
+        width: 12px;
+        height: 12px;
+        transform: translate(15%, 15%);
+    }
+
+    .discordUserDiv span {
+        font-size: 16px;
+    }
+
+    .discordUserBadges img {
+        width: 18px;
+        height: 18px;
+    }
 }
 
   /* Стили для плеера на мобильных устройствах */
