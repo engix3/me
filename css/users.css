@@ -327,7 +327,7 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    transform: translate(25%, 25%); /* чтобы иконка сидела в углу аватарки */
+    transform: translate(-10%, -100%); /* чтобы иконка сидела в углу аватарки */
 }
 
 .status-online { background-image: url('/img/online.png'); }
