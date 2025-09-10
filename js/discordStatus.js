@@ -3,7 +3,7 @@
 async function updateDiscordStatus() {
     try {
         // ⚠️ ЗАМЕНИ ЭТОТ URL НА СВОЙ С RAILWAY
-        const response = await fetch('https://dsbot-production-9a11.up.railway.app/api/status');
+        const response = await fetch('https://879a741c-fc26-471b-98a8-fdf072aea6f4-00-1c3e2gc4b6loo.pike.replit.dev/api/status');
         const data = await response.json();
 
         const statusEl = document.getElementById('discordStatusIndicator');
