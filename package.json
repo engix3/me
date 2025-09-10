@@ -1,0 +1,12 @@
+{
+  "name": "engi-profile",
+  "version": "1.0.0",
+  "description": "My awesome profile",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "discord.js": "^14.14.1"
+  }
+}
