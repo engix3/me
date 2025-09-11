@@ -121,7 +121,7 @@ body {
 }
 
 .container .profileLayout .profileUsername {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 50px;
     width: fit-content;
     pointer-events: none;
@@ -132,7 +132,7 @@ body {
 }
 
 .container .profileLayout .profileUsername span{
-    font-weight: 600;
+    font-weight: 700;
     font-size: 40px;
     width: fit-content;
     pointer-events: none;
