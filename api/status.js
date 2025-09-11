@@ -13,7 +13,7 @@ const client = new Client({
     ]
 });
 
-client.on('ready', () => {
+client.on('clientReady', () => {
     console.log(`✅ ${client.user.tag} успешно подключился!`);
 });
 
