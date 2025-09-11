@@ -1,8 +1,8 @@
 // /js/discordStatus.js
-
 async function updateDiscordStatus() {
     try {
-        const response = await fetch('/api/status'); // 👈 Локальный путь — работает!
+        // Используем локальный путь на Vercel
+        const response = await fetch('/api/status');
         const data = await response.json();
         const statusEl = document.getElementById('discordStatusIndicator');
         if (!statusEl) {
