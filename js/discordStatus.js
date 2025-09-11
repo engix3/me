@@ -4,7 +4,6 @@ async function updateDiscordStatus() {
     try {
         const response = await fetch('/api/status'); // 👈 Локальный путь — работает!
         const data = await response.json();
-
         const statusEl = document.getElementById('discordStatusIndicator');
         if (!statusEl) {
             console.warn('Элемент #discordStatusIndicator не найден');
@@ -12,18 +11,29 @@ async function updateDiscordStatus() {
         }
 
         const validStatuses = ['online', 'idle', 'dnd', 'offline'];
-        const status = validStatuses.includes(data.status) ? data.status : 'offline';
+        const newStatus = validStatuses.includes(data.status) ? data.status : 'offline';
 
-        // Устанавливаем нужный класс → подставляется нужная иконка
-        statusEl.className = 'discordStatus status-' + status;
+        // Если статус изменился — анимируем
+        if (statusEl.dataset.currentStatus !== newStatus) {
+            // Плавно скрываем
+            statusEl.style.opacity = '0';
+            setTimeout(() => {
+                // Меняем класс
+                statusEl.className = 'discordStatus status-' + newStatus;
+                // Сохраняем текущий статус
+                statusEl.dataset.currentStatus = newStatus;
+                // Плавно показываем
+                statusEl.style.opacity = '1';
+            }, 150);
+        }
 
-        console.log('✅ Статус обновлён:', status);
-
+        console.log('✅ Статус обновлён:', newStatus);
     } catch (error) {
         console.error('❌ Ошибка при обновлении статуса:', error);
         const fallbackEl = document.getElementById('discordStatusIndicator');
         if (fallbackEl) {
             fallbackEl.className = 'discordStatus status-offline';
+            fallbackEl.dataset.currentStatus = 'offline';
         }
     }
 }
