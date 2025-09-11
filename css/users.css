@@ -320,8 +320,8 @@ body {
 
 .container .presenceWrapper .discordInfos .discordAvatar .discordStatus {
     position: absolute;
-    bottom: 13;
-    right: 3;
+    bottom: 0;
+    right: 0;
     width: 16px;
     height: 16px;
     background-size: contain;
@@ -329,6 +329,7 @@ body {
     background-position: center;
     transition: opacity 0.3s ease-in-out; /* Добавляем плавную анимацию прозрачности */
     opacity: 1; /* Начальная прозрачность */
+	transform: translate(0, -50%);
 }
 
 .status-online { background-image: url('/img/online.png'); }
