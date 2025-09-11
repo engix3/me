@@ -327,7 +327,8 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    transform: translate(-20%, -100%); /* чтобы иконка сидела в углу аватарки */
+    transition: opacity 0.3s ease-in-out; /* Добавляем плавную анимацию прозрачности */
+    opacity: 1; /* Начальная прозрачность */
 }
 
 .status-online { background-image: url('/img/online.png'); }
@@ -1113,9 +1114,4 @@ body {
     .discordAvatar {
         display: none !important;
     }
-}
-
-.discordStatus {
-    transition: opacity 0.3s ease-in-out;
-    opacity: 1;
 }
