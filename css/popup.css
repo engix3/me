@@ -72,7 +72,7 @@ body::after {
     font-weight: 500;
     border: none;
     transition: background-color 0.2s ease;
-    font-family: 'Chillax', sans-serif !important;
+    font-family: 'Manrope', sans-serif !important;
 }
 
 .popup-button-cancel {
