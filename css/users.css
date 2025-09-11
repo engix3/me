@@ -1114,3 +1114,8 @@ body {
         display: none !important;
     }
 }
+
+.discordStatus {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+}
