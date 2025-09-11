@@ -9,7 +9,7 @@ export default function handler(req, res) {
 <html lang="ru">
 <head>
 <link rel="icon" href="/img/heart.png" type="image/x-icon">
-<link href="https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@1,700,500,300&display=swap&subset[]=cyrillic" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API — engi</title>
