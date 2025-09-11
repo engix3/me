@@ -41,6 +41,6 @@ async function updateDiscordStatus() {
 // Обновляем статус сразу при загрузке
 document.addEventListener('DOMContentLoaded', () => {
     updateDiscordStatus();
-    // И затем каждые 30 секунд
-    setInterval(updateDiscordStatus, 30000);
+    // И затем каждые 5 секунд
+    setInterval(updateDiscordStatus, 5000);
 });
