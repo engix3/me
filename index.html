@@ -413,16 +413,6 @@ container.addEventListener('mouseenter', (e) => {
         });
     });
 </script>
-<script>
-    // Обновление статуса на странице каждые 10 секунд
-    setInterval(() => {
-      fetch('/status')
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById('currentStatus').innerText = data.status;
-        });
-    }, 10000);
-  </script>
   <script>
     // Изолированный скрипт для фонового аудио дождя
 document.addEventListener('DOMContentLoaded', function() {
