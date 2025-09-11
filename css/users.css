@@ -811,7 +811,7 @@ body {
 }
 
 .music-container {
-    font-family: 'Chillax', sans-serif !important;
+    font-family: 'Manrope', sans-serif !important;
     position: relative;
     display: flex;
     align-items: center;
@@ -885,7 +885,7 @@ body {
 .music-player {
     width: 500px;
     border-radius: 10px;
-    font-family: 'Chillax', sans-serif !important;
+    font-family: 'Manrope', sans-serif !important;
     font-size: large;
 }
 
