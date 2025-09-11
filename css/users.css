@@ -320,8 +320,8 @@ body {
 
 .container .presenceWrapper .discordInfos .discordAvatar .discordStatus {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 13;
+    right: 3;
     width: 16px;
     height: 16px;
     background-size: contain;
