@@ -102,8 +102,8 @@ export default function handler(req, res) {
         </div>
 
         <div class="note">
-            👾 Сделано с ❤️ для neprivet.com<br>
-            <a href="https://github.com/engix3/me" target="_blank">Исходный код на GitHub</a>
+            👾 Сделано с ❤️ для <a href="https://engitt.vercel.app" class="subtle-link" target="_blank">engitt.vercel.app</a><br>
+            от engi & <a href="https://chat.qwen.ai" class="subtle-link" target="_blank">qwen</a><br>
         </div>
     </div>
 </body>
